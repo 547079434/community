@@ -1,0 +1,130 @@
+/**index.wxss**/
+.nav-top{
+  width: 100%;
+  height: 120rpx;
+  overflow: hidden;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  float: right;
+}
+.userinfo-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  font-size: 20rpx;
+}
+.usermotto {
+  margin-top: 200rpx;
+}
+
+.search-head{
+  margin-top: 30rpx;
+}
+.search{
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.search input{
+  float: left;
+  border: 1rpx solid #33333380;
+  padding: 10rpx 20rpx;
+  border-radius: 15rpx;
+  font-size: 26rpx;
+}
+.add{
+  background: #AC1D10;
+  display: inline-block;
+  color: #fff;
+  width: 35rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+  text-align: center;
+  border-radius: 35px;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.question{
+  float: right;  
+  text-align: center;
+}
+.word{
+  font-size: 20rpx;
+  color: #AC1D10;
+  margin-top: 5rpx;
+}
+.labels_nav{
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.labels{
+  width: 25%;
+  float: left;
+  text-align: center;
+  color: #191919;
+  font-size: 20rpx;
+  margin-top: 40rpx;
+}
+.labels-div{
+  width: 100%;
+}
+.label-div image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.topics-nav{
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.topics{
+  width: 20%;
+  text-align: center;
+  font-size: 30rpx;
+  float: left;
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #333;
+}
+.articles{
+  width: 90%;
+  margin: 30rpx auto;
+  text-align: center;
+}
+.articles image{
+  width: 100%;
+  display: block;
+  float: left;
+}
+.article-div{
+  display: inline-block;
+  width: 95%;
+  overflow: hidden;
+  border: 1rpx solid #33333380;
+  border-radius: 5rpx;
+  padding: 15rpx;
+  margin-bottom: 10rpx;
+}
+.article-title{
+  width: 100%;
+  overflow: hidden;
+  color: #000000FF;
+  text-align: left;
+  font-size: 30rpx;
+}
+.article-abstract{
+  width: 100%;
+  margin-top: 10rpx;
+  text-align: left;
+  color: #33333380;
+  font-size: 28rpx;
+}
