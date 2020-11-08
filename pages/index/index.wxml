@@ -1,13 +1,5 @@
 <!--index.wxml-->
-<!-- <view class="nav-top">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover" title=""></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-</view> -->
+<import src="/components/article-list/article-list.wxml"/>
 
 <view class="search-head">
   <view class="search">
@@ -25,15 +17,10 @@
   </view>
 </view>
 
-<view class="container">
+<view class="container-div">
   <view class="topics-nav">
-    <view wx:for="{{topics}}" wx:key="item" class="topics">{{item.title}}</view>
+    <view class="topics" bindtap="changeTopic" id="0"><view class="topic-select {{topic_id==0?'selected':''}}"></view>全部</view>
+    <view wx:for="{{topics}}" wx:key="item" class="topics" id="{{item.id}}" bindtap="changeTopic"><view class="topic-select {{topic_id==item.id?'selected':''}}"></view>{{item.title}}</view>
   </view>
-  <view class="articles">
-    <navigator class="article-div" wx:for="{{articles}}" wx:key="item" url="/pages/articles/articles?id={{item.id}}">
-      <image src="{{item.cover}}"></image>
-      <view class="article-title">{{item.title}}</view>
-      <view class="article-abstract">{{item.abstract}}</view>
-    </navigator>
-  </view>
+  <template is="m-articles" data="{{articles: articles}}"></template>
 </view>

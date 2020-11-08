@@ -1,4 +1,6 @@
 //app.js
+const api = require('/utils/api.js');
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -24,20 +26,12 @@ App({
               this.globalData.userInfo = res.userInfo
               res.userInfo.code = this.globalData.code
               // 发送用户信息至后台
-              wx.request({
-                url: this.globalData.apiurl + '/account/create_user/',
+              api.getCreateUser({
                 data: res.userInfo,
-                method: 'POST',
-                header: {
-                  'content-type': 'application/x-www-form-urlencoded' // 默认值
-                },
                 success: res => {
                   this.globalData.userId = res.openid
-                },
-                fail: res => {
-                  console.log(res.errMsg)
                 }
-              })
+              });
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -50,7 +44,6 @@ App({
     })
   },
   globalData: {
-    apiurl: 'https://www.moderndreamer.cn',
     code: null,
     userId: null,
     userInfo: null

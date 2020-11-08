@@ -1,0 +1,12 @@
+<!--components/article-list.wxml-->
+<template name="m-articles">
+  <view class="articles">
+    <navigator class="article-div" wx:for="{{articles}}" wx:key="item" url="/pages/articles/articles?id={{item.id}}">
+      <view class="article-title">{{item.title}}</view>
+      <view class="article-content">
+        <view class="article-abstract">{{item.abstract}}</view>
+        <image src="{{item.cover}}"></image>
+      </view>
+    </navigator>
+  </view>
+</template>

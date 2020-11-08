@@ -1,9 +1,14 @@
 //index.js
 //获取应用实例
+const api = require('../../utils/api.js');
 const app = getApp()
 
 Page({
   data: {
+    topic_id: 0,
+    page: 1, 
+    hasNext: true,
+    articles: [],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -15,67 +20,23 @@ Page({
     })
   },
   onLoad: function () {
-    wx.showToast({ //显示消息提示框  此处是提升用户体验的作用
-      title: '数据加载中',
-      icon: 'loading',
-    });
-    wx.request({
-      url: app.globalData.apiurl + '/article/label_list/', //请求接口的url
-      method: 'POST', //请求方式
-      data: {},//请求参数
-      header: {
-          'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      complete() {  //请求结束后隐藏 loading 提示框
-          wx.hideLoading();
-      },
+    api.getLabelList({
+      data: {},
       success: res => {
-          this.setData({
-            labels: res.data,
-          })
+        this.setData({
+          labels: res.data,
+        })
       },
-      fail: res => {
-        console.log(res.errMsg)
-      }
     });
-    wx.request({
-      url: app.globalData.apiurl + '/article/article_list/', //请求接口的url
-      method: 'POST', //请求方式
-      data: {},//请求参数
-      header: {
-          'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      complete() {  //请求结束后隐藏 loading 提示框
-          wx.hideLoading();
-      },
+    api.getTopicList({
+      data: {},
       success: res => {
-          this.setData({
-            articles: res.data,
-          })
+        this.setData({
+          topics: res.data,
+        })
       },
-      fail: res => {
-        console.log(res.errMsg)
-      }
     });
-    wx.request({
-      url: app.globalData.apiurl + '/article/topic_list/', //请求接口的url
-      method: 'POST', //请求方式
-      data: {},//请求参数
-      header: {
-          'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      complete() {  //请求结束后隐藏 loading 提示框
-          wx.hideLoading();
-      },
-      success: res => {
-          this.setData({
-            topics: res.data,
-          })
-      },
-      fail: res => {
-        console.log(res.errMsg)
-      }
-    });
+    this.addArticles();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -103,11 +64,57 @@ Page({
       })
     }
   },
+  onReachBottom: function () {
+    this.addArticles();
+  },
   getUserInfo: function(e) {
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  changeTopic: function(e){
+    var id = e.currentTarget.id;
+    if(id!=this.data.topic_id){
+      this.setData({
+        topic_id: id,
+        articles: [],
+        page: 1,
+        hasNext: true
+      })
+      this.addArticles();
+    }
+    
+  },
+  addArticles: function(){
+    if(this.data.hasNext){
+      var data = {page: this.data.page};
+      if(this.data.topic_id>0){
+        data.topic_id = this.data.topic_id
+      }
+      wx.showToast({ //显示消息提示框  此处是提升用户体验的作用
+        title: '数据加载中',
+        icon: 'loading',
+      });
+      api.getArticleList({
+        data: data,
+        success: res => {
+          if(res.data.length){
+            this.setData({
+              articles: this.data.articles.concat(res.data),
+              page: this.data.page + 1
+            })
+          }else{
+            this.setData({
+              hasNext: false
+            })
+          }
+        },
+        complete() {  //请求结束后隐藏 loading 提示框
+          wx.hideLoading();
+        }
+      });
+    }    
   }
 })

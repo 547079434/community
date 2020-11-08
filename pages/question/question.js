@@ -1,5 +1,6 @@
-// pages/articles.js
+// pages/question/question.js
 const api = require('../../utils/api.js');
+const app = getApp()
 
 Page({
 
@@ -7,26 +8,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showToast({ //显示消息提示框  此处是提升用户体验的作用
-      title: '数据加载中',
-      icon: 'loading',
-    });
-    api.getArticleDetail({
-      data: {'id': options.id},
+    api.getTopicList({
+      data: {},
       success: res => {
         this.setData({
-          title: res.data['title'],
-          content: res.data['content']
+          topics: res.data,
         })
-      },
-      complete() {  //请求结束后隐藏 loading 提示框
-        wx.hideLoading();
       },
     });
   },
@@ -78,13 +72,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  onShareAppMessage: function () {
-    return {
-      title: '蓝鲸百校',
-      desc: '',
-      path: 'pages/articles/articles?id='+options.id
-    }
   }
 })
