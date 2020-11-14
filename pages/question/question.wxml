@@ -1,7 +1,7 @@
 <!--pages/question/question.wxml-->
 <view class="container">
-    <view wx:for="{{topics}}" wx:key="item" class="topics">
+    <navigator wx:for="{{topics}}" wx:key="item" class="topics" url="/pages/filter-articles/filter-articles?topic_id={{item.id}}">
       <view class="title"># {{item.title}}</view>
       <view class="content">{{item.content}}</view>
-    </view>
+    </navigator>
 </view>

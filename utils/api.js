@@ -42,11 +42,39 @@ const getArticleDetail = (params) => {
 const getCreateUser = (params) => {
   wxRequest(params, `${apiURL}/account/create_user/`);
 };
+const ArticleRead = (params) => {
+  wxRequest(params, `${apiURL}/article/article_read/`);
+};
+const ArticleLove = (params) => {
+  wxRequest(params, `${apiURL}/article/article_love/`);
+};
+const ArticleShare = (params) => {
+  wxRequest(params, `${apiURL}/article/article_share/`);
+};
+const ArticleCreate = (params) => {
+  wxRequest(params, `${apiURL}/article/article_create/`);
+};
+const CommentCreate = (params) => {
+  wxRequest(params, `${apiURL}/article/comment_create/`);
+};
+const CommentLove = (params) => {
+  wxRequest(params, `${apiURL}/article/comment_love/`);
+};
+const AnswerCreate = (params) => {
+  wxRequest(params, `${apiURL}/article/answer_create/`);
+};
 
 module.exports = {
   getLabelList,
   getTopicList,
   getArticleList,
   getArticleDetail,
-  getCreateUser
+  getCreateUser,
+  ArticleRead,
+  ArticleLove,
+  ArticleShare,
+  ArticleCreate,
+  CommentCreate,
+  CommentLove,
+  AnswerCreate
 };

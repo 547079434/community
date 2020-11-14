@@ -1,2 +1,6 @@
 <!--pages/filter-articles/filter-articles.wxml-->
-<text>pages/filter-articles/filter-articles.wxml</text>
+<import src="/components/article-list/article-list.wxml"/>
+
+<view class="container">
+  <template is="m-articles" data="{{articles: articles}}"></template>
+</view>

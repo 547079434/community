@@ -1,1 +1,2 @@
 /* pages/filter-articles/filter-articles.wxss */
+@import "/components/article-list/article-list.wxss";

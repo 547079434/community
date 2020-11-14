@@ -1,5 +1,6 @@
 // pages/articles.js
 const api = require('../../utils/api.js');
+const app = getApp()
 
 Page({
 
@@ -7,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    article_id: ''
   },
 
   /**
@@ -21,6 +23,7 @@ Page({
       data: {'id': options.id},
       success: res => {
         this.setData({
+          article_id: options.id,
           title: res.data['title'],
           content: res.data['content']
         })
@@ -29,6 +32,9 @@ Page({
         wx.hideLoading();
       },
     });
+    api.ArticleRead({
+      data: {'openid': app.globalData.userId, 'article_id': options.id}
+    })
   },
 
   /**
@@ -77,14 +83,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
-  },
-
-  onShareAppMessage: function () {
+    api.ArticleShare({
+      data: {'openid': app.globalData.userId, 'article_id': this.data.article_id}
+    })
     return {
-      title: '蓝鲸百校',
-      desc: '',
-      path: 'pages/articles/articles?id='+options.id
+      title: '蓝鲸百校'
     }
   }
 })

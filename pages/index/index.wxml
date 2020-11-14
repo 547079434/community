@@ -3,18 +3,21 @@
 
 <view class="search-head">
   <view class="search">
-    <input type="text" class="search" placeholder="搜索" />
+    <view class="search-left">
+      <input type="text" placeholder="搜索" bindinput="bindKeyInput"/>
+      <icon class="search-btn" type="search" bindtap="searchArticle"></icon>
+    </view>
     <view class="question"><view class="add">+</view><view class="word">提问</view></view>
   </view>
 </view>
 
 <view class="labels_nav">
-  <view wx:for="{{labels}}" wx:key="item" class="labels">
+  <navigator wx:for="{{labels}}" wx:key="item" class="labels" url="/pages/filter-articles/filter-articles?label_id={{item.id}}">
     <view class="label-div">
       <image src="{{item.icon}}"></image>
       <view >{{item.name}}</view>
     </view>
-  </view>
+  </navigator>
 </view>
 
 <view class="container-div">
