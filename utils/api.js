@@ -5,7 +5,7 @@ const wxRequest = (params, url) => {
     url,
     method: params.method || 'POST',
     data: params.data || {},
-    header: {
+    header: params.header || {
       'content-type': 'application/x-www-form-urlencoded'
     },
     success(res) {

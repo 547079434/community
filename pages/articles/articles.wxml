@@ -1,5 +1,15 @@
 <!--pages/articles.wxml-->
-<view class="title">{{title}}</view>
+<view class="title">{{article.title}}</view>
+<view class="author" wx:if="{{article.user__nickname}}">
+  <image src="{{article.user__avatarurl}}" class="author-head"></image>
+  <view>{{article.user__nickname}}</view>
+  <view class="write-time">{{article.create_at}}</view>
+</view>
 <view class="content">
-  <rich-text nodes='{{content}}'></rich-text>
+  <rich-text nodes='{{article.content}}'></rich-text>
+</view>
+
+<view class="wirte-comment">
+  <view class="comment"><input type="text" placeholder="发表我的评论"/></view>
+  <view class="send">发送</view>
 </view>

@@ -24,8 +24,7 @@ Page({
       success: res => {
         this.setData({
           article_id: options.id,
-          title: res.data['title'],
-          content: res.data['content']
+          article: res.data
         })
       },
       complete() {  //请求结束后隐藏 loading 提示框

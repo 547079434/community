@@ -1,0 +1,33 @@
+<!--pages/form/form.wxml-->
+<view class="container">
+  <form catchsubmit="formSubmit" catchreset="formReset">
+    <view class="field">
+      <input class="title" name="title" placeholder="标题" />
+    </view>
+    <view class="field">
+      <textarea class="content" name="content" placeholder="文章内容" maxlength="-1" />
+    </view>
+    <view class="field">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{topics}}" range-key="title">
+        <view class="picker">
+          选择话题 <span>#{{topics[index].title}}</span>
+        </view>
+      </picker>
+    </view>
+    <view class='uploader-img' wx:if="{{pics}}">
+      <view class='uploader-list' wx:for="{{pics}}" wx:key="item">
+          <image src='{{item}}' data-index="{{index}}" class="img" bindtap='previewImg1'/>
+          <image class='delete' data-index="{{index}}" src='/images/icon-tu-false.png' mode="widthFix" bindtap='deleteImg'/>
+      </view>
+
+      <view class='uploader-list' bindtap='chooseImg'>
+        <image src='/images/add.gif' class="img"/>
+      </view>
+    </view>
+    
+
+    <view class="btn-area">
+      <button type="primary" formType="submit">提 交</button>
+    </view>
+  </form>
+</view>

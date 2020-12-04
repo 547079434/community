@@ -7,7 +7,7 @@
       <input type="text" placeholder="搜索" bindinput="bindKeyInput"/>
       <icon class="search-btn" type="search" bindtap="searchArticle"></icon>
     </view>
-    <view class="question"><view class="add">+</view><view class="word">提问</view></view>
+    <navigator url="/pages/form/form" class="question"><view class="add">+</view><view class="word">提问</view></navigator>
   </view>
 </view>
 

@@ -5,7 +5,8 @@
     "pages/articles/articles",
     "pages/question/question",
     "pages/myself/myself",
-    "pages/filter-articles/filter-articles"
+    "pages/filter-articles/filter-articles",
+    "pages/form/form"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -20,20 +21,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/index.png",
-        "selectedIconPath": "images/index.png"
+        "iconPath": "images/home_nor.png",
+        "selectedIconPath": "images/home_sel.png"
       },
       {
         "pagePath": "pages/question/question",
         "text": "圈子",
-        "iconPath": "images/question.png",
-        "selectedIconPath": "images/question.png"
+        "iconPath": "images/interact_nor.png",
+        "selectedIconPath": "images/interact_sel.png"
       },
       {
         "pagePath": "pages/myself/myself",
         "text": "我的",
-        "iconPath": "images/myself.png",
-        "selectedIconPath": "images/myself.png"
+        "iconPath": "images/my_nor.png",
+        "selectedIconPath": "images/my_sel.png"
       }
     ]
   },

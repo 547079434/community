@@ -4,10 +4,71 @@
   text-align: center;
   font-size: 16px;
 }
+.author{
+  width: 100%;
+  margin-top: 10rpx;
+  color: #666;
+  font-size: 28rpx;
+  overflow: hidden;
+  height: 50rpx;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.author-head{
+  float: left;
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+  border-radius: 50rpx;
+}
+.write-time{
+  margin-left: 20rpx;
+  font-size: 20rpx;
+  color: #33333380;
+}
 .content {
   padding: 10px;
   font-size: 14px;
+  margin-bottom: 100rpx;
 }
-.content p{
+.content-p{
   margin-top: 10px;
+}
+.content-img{
+  max-width: 100%;
+}
+.wirte-comment{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120rpx;
+  line-height: 120rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
+}
+.comment{
+  float: left;
+  width: 75%;
+  height: 100%;
+}
+.comment input{
+  background-color: #F7F7F7FF;
+  margin: 20rpx;
+  height: 60rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 26rpx;
+}
+.send{
+  float: right;
+  width: 140rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 20rpx;
+  text-align: center;
+  color: #fff;
+  background: #AC1D10;
+  border-radius: 14px;
 }

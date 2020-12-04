@@ -3,9 +3,20 @@
   <view class="articles">
     <navigator class="article-div" wx:for="{{articles}}" wx:key="item" url="/pages/articles/articles?id={{item.id}}">
       <view class="article-title">{{item.title}}</view>
+      <view class="article-author" wx:if="{{item.user__nickname}}">
+        <image src="{{item.user__avatarurl}}" class="author-head"></image>
+        <view>{{item.user__nickname}}</view>
+        <view class="write-time">{{item.create_at}}</view>
+      </view>
       <view class="article-content">
         <view class="article-abstract">{{item.abstract}}</view>
-        <image src="{{item.cover}}"></image>
+        <view class="article-count">
+          <view class="count"><image src="/images/share.png"></image> {{item.share_count}}</view>
+          <view class="count"><image src="/images/comments.png"></image> {{item.comment_count}}</view>
+          <view class="count"><image src="/images/praise.png"></image> {{item.love_count}}</view>
+          <view class="count"><image src="/images/read.png" style="width: 38rpx;"></image> {{item.read_count}}</view>
+        </view>
+        <image src="{{item.cover}}" class="cover"></image>
       </view>
     </navigator>
   </view>

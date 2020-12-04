@@ -23,6 +23,7 @@
 .article-content{
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
 .article-abstract{
   width: 60%;
@@ -31,10 +32,54 @@
   text-align: left;
   color: #33333380;
   font-size: 28rpx;
+  overflow: hidden;
+  max-height: 190rpx;
 }
-.articles image{
+.article-author{
+  width: 100%;
+  float: left;
+  margin-top: 10rpx;
+  text-align: center;
+  color: #666;
+  font-size: 28rpx;
+  overflow: hidden;
+  height: 50rpx;
+  display: inline-flex;
+  line-height: 50rpx;
+}
+.author-head{
+  float: left;
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+  border-radius: 50rpx;
+}
+.write-time{
+  margin-left: 20rpx;
+  font-size: 20rpx;
+  color: #33333380;
+}
+.cover{
   width: 40%;
-  height: 200rpx;
+  max-height: 240rpx;
   display: block;
   float: right;
+}
+.article-count{
+  position: absolute;
+  bottom: -5rpx;
+  left: 0;
+}
+.count{
+  margin-right: 10rpx;
+  float: left;
+  color: #33333380;
+  font-size: 26rpx;
+  line-height: 32rpx;
+}
+.count image{
+  float: left;
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 5rpx;
 }

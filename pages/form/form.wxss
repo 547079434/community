@@ -1,0 +1,50 @@
+/* pages/form/form.wxss */
+.field{
+  width: 98%;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+input, textarea, .picker{
+  padding: 15rpx;
+  border-radius: 5rpx;
+  background: #fcfcfc;
+}
+.picker span{
+  color: blue;
+  margin-left: 30rpx;
+}
+textarea{
+  height: 620rpx;
+}
+.title{
+  font-size: 40rpx;
+}
+.uploader-img{
+  margin-top: 30rpx;
+  width: 100%;
+  overflow: hidden;
+}
+.uploader-list{
+  float: left;
+  margin-right: 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+.img{
+  width: 150rpx;
+  height: 130rpx;
+}
+.delete{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50rpx;
+  height: 50rpx;
+}
+.btn-area{
+  width: 100%;
+  margin-top: 30rpx;
+}
+.btn-area button{
+  width: 100% !important;
+}
